@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Roboto|Ubuntu&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-size:100%;
+            border:0;
+            background-color: #1a1a1b;
+            /* -webkit-box-sizing: border-box; */
+        }
+
+        .post {
+            /* display: -webkit-box;
+            display: -webkit-flex; */
+            display: flex;
+            /* -webkit-box-pack: center; */
+        }
+
+        #username {
+            /* display: -webkit-box;
+            display: -webkit-flex; */
+            display: flex;
+            /* display: inline-block; */
+            /* font-family: 'Open Sans', sans-serif; */
+            /* font-size: 14px; */
+        }
+
+        #time-ago {
+            color: #818384;
+            /* font-family: 'Open Sans', sans-serif; */
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        #total-points {
+            color: #bcc5c5;
+            /* font-family: 'Open Sans', sans-serif; */
+            font-family: 'Ubuntu', sans-serif;
+            margin-right: 10px;
+        }
+
+        #username-hash {
+            color: #4a678f;
+            margin-right: 20px;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        #comment {
+            color: #d7dadc;
+            /* font-family: 'Lato', sans-serif; */
+            font-family: 'Roboto Mono', monospace;
+            font-size: 20px;
+            /* margin-right: 500px; */
+        }
+
+        /* .vl {
+          border-left: 2.5px solid gray;
+          height: 500px;
+          position: absolute;
+          left: 1.8%;
+          margin-left: 0px;
+          top: 0;
+        } */
+
+        .thread img {
+            margin: 10px;
+            height: 50px;
+            width: 50px;
+            border: 2px solid black;
+            border-radius: 25px;
+        }
+
+        .thread {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .post-content {
+            margin-top: 20px;
+            margin-left: 5px;
+            margin-right: 40px;
+        }
+
+        </style>
+    </head>
+    <body>
+        <div class="post">
+            <div class="thread">
+                <img src="avatars/avatar_8.png" alt="">
+            </div>
+            <div class="post-content">
+                <div id="username">
+                    <h1 id="username-hash">{{username}}</h1>
+                    <p id="total-points">{{noUpvotes}}</p>
+
+                </div>
+                <br>
+                <div id="comment">
+                    <p>{{subcomment}}</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
