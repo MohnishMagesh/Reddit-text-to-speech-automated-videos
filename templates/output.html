@@ -23,14 +23,17 @@
         .post {
             /* display: -webkit-box;
             display: -webkit-flex; */
-            display: flex;
+            /* display: flex; */
+            display: table;
+            table-layout: fixed;
+            /* width: 100%; */
             /* -webkit-box-pack: center; */
         }
 
         #username {
             /* display: -webkit-box;
             display: -webkit-flex; */
-            display: flex;
+            display: inline-block;
             /* display: inline-block; */
             /* font-family: 'Open Sans', sans-serif; */
             /* font-size: 14px; */
@@ -47,12 +50,15 @@
             /* font-family: 'Open Sans', sans-serif; */
             font-family: 'Ubuntu', sans-serif;
             margin-right: 10px;
+            padding-left: 15px;
+            font-size: 18px;
         }
 
         #username-hash {
             color: #4a678f;
-            margin-right: 20px;
+            padding-left: 20px;
             font-family: 'Ubuntu', sans-serif;
+            font-size: 18.5px;
         }
 
         #comment {
@@ -60,6 +66,7 @@
             /* font-family: 'Lato', sans-serif; */
             font-family: 'Roboto Mono', monospace;
             font-size: 20px;
+            padding-left: 11px;
             /* margin-right: 500px; */
         }
 
@@ -72,13 +79,13 @@
           top: 0;
         } */
 
-        .thread img {
+        /* .thread img {
             margin: 10px;
             height: 50px;
             width: 50px;
-            border: 2px solid black;
-            border-radius: 25px;
-        }
+            border: 40px solid black;
+            border-radius: 0px;
+        } */
 
         .thread {
             display: flex;
@@ -91,25 +98,53 @@
             margin-right: 40px;
         }
 
+        .reddit-logo {
+            margin: 10px;
+            height: 50px;
+            width: 50px;
+            border: 0px solid black;
+            border-radius: 25px;
+        }
+
+        #invisible {
+            width: 40px;
+            height: 40px;
+        }
+
         </style>
     </head>
     <body>
-        <div class="post">
+        <!-- <div class="post">
             <div class="thread">
-                <img src="avatars/avatar_15.png" alt="">
-                <!-- <div class="vl"></div> -->
+                <img src="avatars/avatar_8.png" alt="">
             </div>
             <div class="post-content">
                 <div id="username">
-                    <h1 id="username-hash">sklawzy</h1>
-                    <p id="total-points">9281</p>
-                    
+                    <h1 id="username-hash">_WillowthePillow_</h1>
+                    <p id="total-points">6</p>
+
                 </div>
                 <br>
                 <div id="comment">
-                    <p>Telephone calls.</p>
+                    <p>Hallucinations</p>
                 </div>
             </div>
-        </div>
+        </div> -->
+        <table>
+            <tr>
+                <td id="invisible"></td>
+                <!-- <td><img class="reddit-logo" src="avatars/avatar_14.png" alt=""></td> -->
+                <td>
+                    <table>
+                        <td><h1 id="username-hash">_WillowthePillow_</h1></td>
+                        <td><p id="total-points">6 upvotes</p></td>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td id="invisible"></td>
+                <td id="comment">Hallucinations</td>
+            </tr>
+        </table>
     </body>
 </html>

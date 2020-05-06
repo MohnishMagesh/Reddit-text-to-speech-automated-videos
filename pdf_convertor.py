@@ -40,4 +40,4 @@ import imgkit
 # template.close()
 
 # pdfkit.from_file('C:\\Users\\MOHNISH\\AI\\Reddit_bot\\template\\reddit_post_template.html','C:\\Users\\MOHNISH\\AI\\Reddit_bot\\template\\out.pdf')
-imgkit.from_file('C:\\Users\\MOHNISH\\AI\\Reddit_bot\\template\\reddit_post_template.html', 'C:\\Users\\MOHNISH\\AI\\Reddit_bot\\template\\out.png')
+imgkit.from_file('C:\\Users\\MOHNISH\\AI\\Reddit_bot\\templates\\reddit_sample_template.html', 'C:\\Users\\MOHNISH\\AI\\Reddit_bot\\templates\\out.png')
