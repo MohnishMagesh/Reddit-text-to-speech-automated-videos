@@ -15,6 +15,9 @@ import sys
 #
 # os.system("start output.mp3")
 
+# new list for keeping count of the number of no of sub audio files for a comment_ to later crosscheck with no of pngs
+count_audio_real = ['placeholder']
+
 def work(path):
     count_comment_mp3 = 0
 	# with open(f"{tid}\\demo.txt", encoding='utf-8') as f:
@@ -56,6 +59,7 @@ def work(path):
             sub_comment_count_mp3 += 1
             output.save(f"{path_for_project}\\comment_{count_comment_mp3}\\sub_{sub_comment_count_mp3}.mp3")
 
+        count_audio_real.append(sub_comment_count_mp3)
         # comment_content = comment[2]
     print(bad_words)
 

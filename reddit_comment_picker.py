@@ -36,12 +36,16 @@ if not os.path.exists(newpath):
 
 count_comment = 0
 
+# create list to count the no of images needed for each comment
+count_real = ['placeholder']
+
 for top_level_comment in submission.comments:
     if isinstance(top_level_comment, MoreComments):
         continue
     punctuation_reg = re.compile('(?<=[.!,?:;-]) +')
     split_parts = punctuation_reg.split(top_level_comment.body)
     parts = list(filter(None, split_parts))
+    count_real.append(len(parts))
 
     # now to create new folder to save this comment images
     count_comment += 1
