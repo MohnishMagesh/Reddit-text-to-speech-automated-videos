@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Barlow|IBM+Plex+Mono|Inconsolata|PT+Sans+Narrow|Source+Code+Pro|Ubuntu+Mono&display=swap');
+
+            * {
+                margin: 0;
+                padding: 0;
+                font-size:100%;
+                border:0;
+                background-color: #1a1a1b;
+                /* -webkit-box-sizing: border-box; */
+            }
+
+            .subreddit-logo {
+                width: 150px;
+                height: 150px;
+                border-radius: 75px;
+                margin-left: 40px;
+                margin-top: 20px;
+            }
+
+            #subreddit-name {
+                /* font-family: 'Barlow', sans-serif; */
+                font-family: 'Inconsolata', monospace;
+                /* font-family: 'IBM Plex Mono', monospace; */
+                font-size: 80px;
+                color: #4a678f;
+                padding-bottom: 80px;
+                padding-top: 55px;
+                /* text-decoration: underline; */
+                border-bottom: 8px solid;
+                border-color: #4a678f;
+                /* padding-bottom: -15px; */
+            }
+
+            #post-title {
+                /* font-family: 'Barlow', sans-serif; */
+                font-family: 'Inconsolata', monospace;
+                /* font-family: 'IBM Plex Mono', monospace; */
+                font-size: 70px;
+                color: #bcc5c5;
+                padding-left: 40px;
+                padding-top: 70px;
+                padding-right: 40px;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td><img class="subreddit-logo" src="avatars/subreddits/{{subreddit}}.png" alt=""></td>
+                <td id="subreddit-name">{{subreddit}}</td>
+            </tr>
+            <tr>
+                <td id="post-title" colspan="2">{{title_name}}</td>
+            </tr>
+        </table>
+    </body>
+</html>
