@@ -26,6 +26,12 @@ def work(path):
         lines = f.read().strip().split("\n\n")
     # for bad word replacement
 	# with open("bad_word_rules.txt") as f_:
+    # this is to save mp3 file of the title
+    title = lines[0]
+    title_text = title
+    language = 'en-uk'
+    output_title = gTTS(text=title_text, lang=language, slow=False)
+    output_title.save(f"{newpath}\\comment_title\\comment_title.mp3")
 	# 	# each line is "badword, replacement"
 	# 	bad_words = [(x.split()[0], x.split()[1]) for x in f_.readlines()]
     with open(f"{path}\\bad_word_rules.txt") as f_:

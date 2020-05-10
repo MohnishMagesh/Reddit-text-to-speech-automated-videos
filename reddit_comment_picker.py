@@ -4,10 +4,13 @@ import os
 import pdfkit
 import imgkit
 import random
-# import jinja
 import jinja2
 from jinja2 import Environment, FileSystemLoader, BaseLoader, PackageLoader
 from praw.models import MoreComments
+
+temp_path_folder = "C:\\Users\\MOHNISH\\AI\\Reddit_bot\\result_video_folder\\temp"
+if not os.path.exists(temp_path_folder):
+    os.makedirs(temp_path_folder)
 
 # make a jinja environment and setup
 # jinja_env = jinja2.Environment(loader=jinja2.FileSystemLoader('C:\\Users\\MOHNISH\\AI\\Reddit_bot\\templates'))
@@ -18,8 +21,10 @@ template_title = jinja_env.get_template('templates/reddit_title_template.html')
 
 reddit = praw.Reddit(user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:75.0) Gecko/20100101 Firefox/75.0', client_id='teH3QtlEXPNiCA', client_secret="HTRTxJcFd6PWzGD_osnSv2QKGpc")
 
-# put your subreddit post url subreddits allowed are AskReddit
-url = "https://www.reddit.com/r/AskReddit/comments/gcbqi7/what_is_10x_scarier_at_night_than_day/"
+# put your subreddit post url, subreddits allowed are AskReddit
+# url = "https://www.reddit.com/r/AskReddit/comments/gcbqi7/what_is_10x_scarier_at_night_than_day/"
+# url = "https://www.reddit.com/r/AskReddit/comments/ggdivs/what_positive_effects_has_the_quarantine_had_for/"
+url = "https://www.reddit.com/r/AskReddit/comments/ggav5m/what_is_the_most_effective_psychological_trick/"
 submission = reddit.submission(url=url)
 # getting subreddit name from the submission
 subreddit_name = str(submission.subreddit)
@@ -55,14 +60,22 @@ count_comment = 0
 # create list to count the no of images needed for each comment
 count_real = ['placeholder']
 
+comment_limit = 115
+counter = 0
+
 # iterating through the comments
 for top_level_comment in submission.comments:
     if isinstance(top_level_comment, MoreComments):
         continue
+    if counter > comment_limit:
+        break
+    counter += 1
+
     punctuation_reg = re.compile('(?<=[.!,?:;-]) +')
     size_in_chars_of_comment = len(top_level_comment.body)
+
     # check if size of the comment is more than 2000 characters in length
-    if(size_in_chars_of_comment>2000):
+    if(size_in_chars_of_comment>1200):
         continue
     split_parts = punctuation_reg.split(top_level_comment.body)
     parts = list(filter(None, split_parts))

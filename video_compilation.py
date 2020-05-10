@@ -78,8 +78,21 @@ def make_movie(path):
     # # final_video.write_videofile(f"{newpath}\\movie.mp4")
     # return final_video
 
-make_movie(path_defined_for_clips)
+def make_title_clip(path):
+    pid_title = f"{path}\\comment_title"
+    path_of_title_image = f"{pid_title}\\comment_title.png"
+    path_of_title_audio = f"{pid_title}\\comment_title.mp3"
+    audio = AudioFileClip(path_of_title_audio)
+    # audio_comment_clip.append(audio)
+    # audio = AudioFileClip(path_of_sub_audio)
+    image = ImageClip(path_of_title_image).set_duration(audio.duration).set_fps(5).set_position("center")
+    # image.with_duration(audio.duration).with_position(("center","top"))
+    image = image.resize(1)
+    final_clip = CompositeVideoClip([image],size=(1920,1080),bg_color=(0,0,0)).set_duration(image.duration)
+    final_clip.write_videofile(f"{pid_title}\\comment_title.mp4")
 
+make_movie(path_defined_for_clips)
+# make_title_clip(path_defined_for_clips)
 
 
 # total_video = []
