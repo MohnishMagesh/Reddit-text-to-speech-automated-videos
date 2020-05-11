@@ -94,14 +94,21 @@ for top_level_comment in submission.comments:
 	# parts = list(filter(None, split_parts))
     user = str(top_level_comment.author)
     # print(top_level_comment.author)
-    fh.write(user+'\n')
+    if(user == None or user == ''):
+        fh.write('deleted'+'\n')
+    else:
+        fh.write(user+'\n')
     upvotes = str(top_level_comment.score)
     # print(top_level_comment.score)
-    fh.write(upvotes+'\n')
+    if(upvotes == None or upvotes == ''):
+        fh.write('deleted'+'\n')
+    else:
+        fh.write(upvotes+'\n')
     # print(dir(top_level_comment))
     # print(parts)
     # print(top_level_comment.body)
     content = str(top_level_comment.body)
+    content = content.replace('\n','.')
     fh.write(content+'\n')
     fh.write('\n')
 

@@ -45,7 +45,7 @@ for k in range(1,int((len(count_real)-1)/10)+1):
 
     print(temp_video_clips_appended)
     final_clips_combined = concatenate_videoclips(temp_video_clips_appended,method="chain")
-    final_clips_combined.write_videofile(f"{temp_path}\\temp\\movie_clip_{k}.mp4")
+    final_clips_combined.write_videofile(f"{temp_path}\\temp\\movie_clip_{k}.mp4",threads=4)
     # no_of_subclips += 1
 
 # no_of_subclips_str = str(no_of_subclips)

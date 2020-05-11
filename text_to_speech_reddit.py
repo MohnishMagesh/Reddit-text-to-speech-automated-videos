@@ -41,6 +41,32 @@ def work(path):
 
     lister = []
 
+    # for i in range(1,len(lines)):
+    #     try:
+    #         comment = lines[i].split("\n")
+    #         actual_comment = comment[2]
+    #         count_comment_mp3 += 1
+    #         # print(actual_comment)
+    #         punctuation_reg = re.compile('(?<=[.!,?:;-]) +')
+    #         split_parts = punctuation_reg.split(actual_comment)
+    #         parts = list(filter(None, split_parts))
+    #         print(parts)
+    #         lister = parts
+    #     except:
+    #         continue
+    #
+    #
+    #     path_for_project = newpath
+    #     sub_comment_count_mp3 = 0
+    #     for j in lister:
+    #         current_text = j
+    #         language = 'en-uk'
+    #         output = gTTS(text=current_text, lang=language, slow=False)
+    #         sub_comment_count_mp3 += 1
+    #         output.save(f"{path_for_project}\\comment_{count_comment_mp3}\\sub_{sub_comment_count_mp3}.mp3")
+    #
+    #     count_audio_real.append(sub_comment_count_mp3)
+    #     # comment_content = comment[2]
     for i in range(1,len(lines)):
         try:
             comment = lines[i].split("\n")
@@ -53,20 +79,24 @@ def work(path):
             print(parts)
             lister = parts
         except:
+            count_comment_mp3 -= 1
             continue
 
+        try:
+            path_for_project = newpath
+            sub_comment_count_mp3 = 0
+            for j in lister:
+                current_text = j
+                language = 'en-uk'
+                output = gTTS(text=current_text, lang=language, slow=False)
+                sub_comment_count_mp3 += 1
+                output.save(f"{path_for_project}\\comment_{count_comment_mp3}\\sub_{sub_comment_count_mp3}.mp3")
 
-        path_for_project = newpath
-        sub_comment_count_mp3 = 0
-        for j in lister:
-            current_text = j
-            language = 'en-uk'
-            output = gTTS(text=current_text, lang=language, slow=False)
-            sub_comment_count_mp3 += 1
-            output.save(f"{path_for_project}\\comment_{count_comment_mp3}\\sub_{sub_comment_count_mp3}.mp3")
-
-        count_audio_real.append(sub_comment_count_mp3)
-        # comment_content = comment[2]
+            count_audio_real.append(sub_comment_count_mp3)
+            # comment_content = comment[2]
+        except:
+            count_comment_mp3 -= 1
+            continue
     print(bad_words)
 
     # now for the actual audio files, every punctuation_reg
