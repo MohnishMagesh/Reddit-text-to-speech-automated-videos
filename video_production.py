@@ -1,9 +1,10 @@
 from moviepy.editor import *
-from reddit_comment_picker import count_real, newpath
-from text_to_speech_reddit import count_audio_real
-from video_compilation import *
+# from reddit_comment_picker import count_real, newpath
+# from text_to_speech_reddit import count_audio_real
+# from video_compilation import *
+import gc
 
-# newpath = "C:\\Users\\MOHNISH\\AI\\Reddit_bot\\result_video_folder\\What is 10x scarier"
+newpath = "C:\\Users\\MOHNISH\\AI\\Reddit_bot\\result_video_folder\\What is the most ef"
 
 # compilation_clips = []
 # for i in range(1,len(count_real)-1):
@@ -24,8 +25,8 @@ temp_path = "C:\\Users\\MOHNISH\\AI\\Reddit_bot\\result_video_folder"
 
 # no_of_subclips = 0
 
-for k in range(1,int((len(count_real)-1)/10)+1):
-# for k in range(1,int(93/10)+1):
+# for k in range(1,int((len(count_real)-1)/10)+1):
+for k in range(1,int(115/10)+1):
     temp = k*10
     temp_video_clips_appended = []
     for i in range(temp-9,temp+1):
@@ -38,14 +39,16 @@ for k in range(1,int((len(count_real)-1)/10)+1):
             # add transition clip here
             path_for_transition = f"C:\\Users\\MOHNISH\\AI\\Reddit_bot\\effects\\VHS_effect_cartoonish.mp4"
             transition_clip = VideoFileClip(path_for_transition)
-            final_render = concatenate_videoclips([video_comment,transition_clip])
-            temp_video_clips_appended.append(final_render)
+            final_render = concatenate_videoclips([video_comment,transition_clip]) #////
+            # temp_video_clips_appended.append(video_comment) #////
+            temp_video_clips_appended.append(final_render) #////
         except:
             continue
 
     print(temp_video_clips_appended)
     final_clips_combined = concatenate_videoclips(temp_video_clips_appended,method="chain")
     final_clips_combined.write_videofile(f"{temp_path}\\temp\\movie_clip_{k}.mp4",threads=4)
+    gc.collect()
     # no_of_subclips += 1
 
 # no_of_subclips_str = str(no_of_subclips)
