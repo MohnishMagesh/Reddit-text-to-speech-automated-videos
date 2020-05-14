@@ -91,13 +91,13 @@ def make_title_clip(path):
     image = ImageClip(path_of_title_image).set_duration(audio.duration).set_fps(5).set_position("center")
     # image.with_duration(audio.duration).with_position(("center","top"))
     image = image.resize(1)
-    final_clip = CompositeVideoClip([image],size=(1920,1080),bg_color=(0,0,0)).set_duration(image.duration)
+    final_clip = CompositeVideoClip([image],size=(1920,1080),bg_color=(26,26,27)).set_duration(image.duration)
     # final_clip.write_videofile(f"{pid_title}\\comment_title.mp4")
     # add transition clip here
     path_for_transition = f"C:\\Users\\MOHNISH\\AI\\Reddit_bot\\effects\\VHS_effect_cartoonish.mp4"
     transition_clip = VideoFileClip(path_for_transition)
     final_render = concatenate_videoclips([final_clip,transition_clip])
-    final_render.write_videofile("C:\\Users\\MOHNISH\\AI\\Reddit_bot\\result_video_folder\\temp")
+    final_render.write_videofile("C:\\Users\\MOHNISH\\AI\\Reddit_bot\\result_video_folder\\temp\\comment_title.mp4")
 
 # make_movie(path_defined_for_clips)
 # make_title_clip(path_defined_for_clips)
@@ -114,14 +114,17 @@ def process_clips(i):
         for j in range(1,count_real[i]+1):
             path_of_sub_audio = f"{pid}\\sub_{j}.mp3"
             path_of_sub_image = f"{pid}\\sub_{j}.png"
-            audio = AudioFileClip(path_of_sub_audio)
-            audio_comment_clip.append(audio)
-            # audio = AudioFileClip(path_of_sub_audio)
-            image = ImageClip(path_of_sub_image).set_duration(audio.duration).set_fps(30).set_position((0.0,0.2),relative=True)
-            # image.with_duration(audio.duration).with_position(("center","top"))
-            image = image.resize(1.875)
-            final_clip = CompositeVideoClip([image],size=(1920,1080),bg_color=(0,0,0)).set_duration(image.duration)
-            comment_clips.append(final_clip)
+            try:
+                audio = AudioFileClip(path_of_sub_audio)
+                audio_comment_clip.append(audio)
+                # audio = AudioFileClip(path_of_sub_audio)
+                image = ImageClip(path_of_sub_image).set_duration(audio.duration).set_fps(30).set_position((0.0,0.08),relative=True)
+                # image.with_duration(audio.duration).with_position(("center","top"))
+                image = image.resize(1.875)
+                final_clip = CompositeVideoClip([image],size=(1920,1080),bg_color=(26,26,27)).set_duration(image.duration)
+                comment_clips.append(final_clip)
+            except:
+                continue
         # concatenate videoclips for single comment clip
         # comment_video_clip = concatenate_videoclips(comment_video,method="compose")
         print(audio_comment_clip)
@@ -136,7 +139,7 @@ def process_clips(i):
     #     continue
 
 
-for comment_no in range(1,len(count_real)-1):
+for comment_no in range(1,len(count_real)):
     process_clips(comment_no)
     gc.collect()
 make_title_clip(path_defined_for_clips)

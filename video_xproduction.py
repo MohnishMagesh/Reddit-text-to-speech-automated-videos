@@ -22,7 +22,8 @@ def make_title_clip(path):
     final_render.write_videofile(f"{path}\\comment_title\\comment_title.mp4")
 
 temp_path = "C:\\Users\\MOHNISH\\AI\\Reddit_bot\\result_video_folder\\temp"
-newpath = "C:\\Users\\MOHNISH\\AI\\Reddit_bot\\result_video_folder\\What is the most ef"
+# CHANGE///////////
+newpath = "C:\\Users\\MOHNISH\\AI\\Reddit_bot\\result_video_folder\\school_game_loading_tips"
 
 # no_of_subclips = int((len(count_real)/10)-1)
 # temp_path = temp_path_folder
@@ -39,7 +40,8 @@ final_render = concatenate_videoclips([video_comment,transition_clip])
 
 temp_video_clips_appended_2.append(final_render)
 # for i in range(1,no_of_subclips+1):
-for i in range(1,11+1):
+# CHANGE////////////
+for i in range(1,3+1):
     video_subclips_final = []
     print(i)
     path_for_clip = f"{temp_path}\\movie_clip_{i}.mp4"

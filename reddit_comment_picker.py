@@ -21,10 +21,17 @@ template_title = jinja_env.get_template('templates/reddit_title_template.html')
 
 reddit = praw.Reddit(user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:75.0) Gecko/20100101 Firefox/75.0', client_id='teH3QtlEXPNiCA', client_secret="HTRTxJcFd6PWzGD_osnSv2QKGpc")
 
-# put your subreddit post url, subreddits allowed are AskReddit
+# put your subreddit post url, subreddits allowed are = ['AskReddit','']
 # url = "https://www.reddit.com/r/AskReddit/comments/gcbqi7/what_is_10x_scarier_at_night_than_day/"
 # url = "https://www.reddit.com/r/AskReddit/comments/ggdivs/what_positive_effects_has_the_quarantine_had_for/"
-url = "https://www.reddit.com/r/AskReddit/comments/ggav5m/what_is_the_most_effective_psychological_trick/"
+# url = "https://www.reddit.com/r/AskReddit/comments/ggav5m/what_is_the_most_effective_psychological_trick/"
+# url = "https://www.reddit.com/r/AskReddit/comments/ggqw9w/what_is_the_greatest_fuck_it_ill_do_it_myself_in/"
+# url = "https://www.reddit.com/r/AskReddit/comments/gfsuqt/workers_who_got_their_bosses_fired_how/"
+# url = "https://www.reddit.com/r/AskReddit/comments/gdzb3i/whats_the_stupidest_reason_you_got_in_trouble_in/"
+# url = "https://www.reddit.com/r/AskReddit/comments/gia4l8/what_are_gonna_be_the_real_consequences_of_covid/"
+# url = "https://www.reddit.com/r/AskReddit/comments/gffps6/whats_the_worst_thing_youve_ever_been_accused_of/"
+# url = "https://www.reddit.com/r/AskReddit/comments/gj3f98/if_school_was_a_game_what_would_be_some_loading/"
+url = "https://www.reddit.com/r/AskReddit/comments/gh3xkl/men_what_unmanly_activity_do_you_proudly/"
 submission = reddit.submission(url=url)
 # getting subreddit name from the submission
 subreddit_name = str(submission.subreddit)
@@ -32,13 +39,15 @@ subreddit_name = str(submission.subreddit)
 #open file handler for saving comments and attributes
 fh = open('C:\\Users\\MOHNISH\\AI\\Reddit_bot\\demo.txt','w')
 
-title = submission.title
+title = submission.title #///////////
 fh.write(title+'\n')
 fh.write('\n')
 
 # now to create new folder to save all comment images
 path_for_images = 'C:\\Users\\MOHNISH\\AI\\Reddit_bot\\result_video_folder\\'
-folder_name = title[0:19]
+folder_name = title[0:18]
+# CHANGE/////
+folder_name = 'unmanly_activity'
 newpath = path_for_images + folder_name
 if not os.path.exists(newpath):
     os.makedirs(newpath)
@@ -60,7 +69,8 @@ count_comment = 0
 # create list to count the no of images needed for each comment
 count_real = ['placeholder']
 
-comment_limit = 115
+# CHANGE////////
+comment_limit = 100
 counter = 0
 
 # iterating through the comments
@@ -92,25 +102,43 @@ for top_level_comment in submission.comments:
 
     # split_parts = punctuation_reg.split(top_level_comment.body)
 	# parts = list(filter(None, split_parts))
-    user = str(top_level_comment.author)
-    # print(top_level_comment.author)
-    if(user == None or user == ''):
-        fh.write('deleted'+'\n')
-    else:
-        fh.write(user+'\n')
-    upvotes = str(top_level_comment.score)
-    # print(top_level_comment.score)
-    if(upvotes == None or upvotes == ''):
-        fh.write('deleted'+'\n')
-    else:
-        fh.write(upvotes+'\n')
-    # print(dir(top_level_comment))
-    # print(parts)
-    # print(top_level_comment.body)
-    content = str(top_level_comment.body)
-    content = content.replace('\n','.')
-    fh.write(content+'\n')
-    fh.write('\n')
+    # key_content = False
+
+    try:
+        user = str(top_level_comment.author)
+        # print(user)
+        upvotes = str(top_level_comment.score)
+        # print(upvotes)
+        content = str(top_level_comment.body)
+        # print(content)
+        content = content.replace('\n','.')
+        # print(content)
+        if(len(content)>0):
+            key_content = True
+        print(key_content)
+        # print(top_level_comment.author)
+        if(user == None or user == ''):
+            fh.write('deleted'+'\n')
+        else:
+            fh.write(user+'\n')
+
+        # print(top_level_comment.score)
+        if(upvotes == None or upvotes == ''):
+            fh.write('deleted'+'\n')
+        else:
+            fh.write(upvotes+'\n')
+        # print(dir(top_level_comment))
+        # print(parts)
+        # print(top_level_comment.body)
+        if(content == None or content == ''):
+            fh.write('deleted\n')
+        else:
+            fh.write(content+'\n')
+            fh.write('\n')
+    except:
+        fh.write('interesting'+'\n')
+        fh.write('\n')
+        continue
 
     # now to create new folders to save punctuation separated images in this folder
     count = 0

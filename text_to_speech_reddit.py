@@ -41,6 +41,13 @@ def work(path):
 
     lister = []
 
+    # for word in bad_words:
+	# 	# remove bad words from title
+	# 	title = title.replace(word[0], word[1])
+
+    for word in bad_words:
+        title = title.replace(word[0], word[1])
+
     # for i in range(1,len(lines)):
     #     try:
     #         comment = lines[i].split("\n")
@@ -67,10 +74,15 @@ def work(path):
     #
     #     count_audio_real.append(sub_comment_count_mp3)
     #     # comment_content = comment[2]
-    for i in range(1,len(lines)):
+    for i in range(1,len(lines)+1):
         try:
             comment = lines[i].split("\n")
             actual_comment = comment[2]
+            # for word in bad_words:
+			# 	# remove bad words from post
+			# 	actual_comment = actual_comment.replace(word[0], word[1])
+            for word in bad_words:
+                actual_comment = actual_comment.replace(word[0], word[1])
             count_comment_mp3 += 1
             # print(actual_comment)
             punctuation_reg = re.compile('(?<=[.!,?:;-]) +')
@@ -79,12 +91,12 @@ def work(path):
             print(parts)
             lister = parts
         except:
-            count_comment_mp3 -= 1
+            # count_comment_mp3 -= 1
             continue
 
+        sub_comment_count_mp3 = 0
         try:
             path_for_project = newpath
-            sub_comment_count_mp3 = 0
             for j in lister:
                 current_text = j
                 language = 'en-uk'
@@ -95,7 +107,8 @@ def work(path):
             count_audio_real.append(sub_comment_count_mp3)
             # comment_content = comment[2]
         except:
-            count_comment_mp3 -= 1
+            count_audio_real.append(sub_comment_count_mp3)
+            # count_comment_mp3 -= 1
             continue
     print(bad_words)
 

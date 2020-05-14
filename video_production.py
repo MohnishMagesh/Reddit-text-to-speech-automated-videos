@@ -4,7 +4,8 @@ from moviepy.editor import *
 # from video_compilation import *
 import gc
 
-newpath = "C:\\Users\\MOHNISH\\AI\\Reddit_bot\\result_video_folder\\What is the most ef"
+# CHANGE///////////
+newpath = "C:\\Users\\MOHNISH\\AI\\Reddit_bot\\result_video_folder\\school_game_loading_tips"
 
 # compilation_clips = []
 # for i in range(1,len(count_real)-1):
@@ -26,7 +27,8 @@ temp_path = "C:\\Users\\MOHNISH\\AI\\Reddit_bot\\result_video_folder"
 # no_of_subclips = 0
 
 # for k in range(1,int((len(count_real)-1)/10)+1):
-for k in range(1,int(115/10)+1):
+# CHANGE///////////
+for k in range(1,int(35/10)+1):
     temp = k*10
     temp_video_clips_appended = []
     for i in range(temp-9,temp+1):
