@@ -31,7 +31,9 @@ reddit = praw.Reddit(user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:75
 # url = "https://www.reddit.com/r/AskReddit/comments/gia4l8/what_are_gonna_be_the_real_consequences_of_covid/"
 # url = "https://www.reddit.com/r/AskReddit/comments/gffps6/whats_the_worst_thing_youve_ever_been_accused_of/"
 # url = "https://www.reddit.com/r/AskReddit/comments/gj3f98/if_school_was_a_game_what_would_be_some_loading/"
-url = "https://www.reddit.com/r/AskReddit/comments/gh3xkl/men_what_unmanly_activity_do_you_proudly/"
+# url = "https://www.reddit.com/r/AskReddit/comments/gh3xkl/men_what_unmanly_activity_do_you_proudly/"
+# url = "https://www.reddit.com/r/AskReddit/comments/gjgn93/what_is_a_fact_that_can_possibly_save_your_life/"
+url = "https://www.reddit.com/r/AskReddit/comments/gekt3w/what_industry_is_a_lot_shadier_than_it_seems/"
 submission = reddit.submission(url=url)
 # getting subreddit name from the submission
 subreddit_name = str(submission.subreddit)
@@ -47,7 +49,7 @@ fh.write('\n')
 path_for_images = 'C:\\Users\\MOHNISH\\AI\\Reddit_bot\\result_video_folder\\'
 folder_name = title[0:18]
 # CHANGE/////
-folder_name = 'unmanly_activity'
+folder_name = 'industry_shadier_than_it_seems'
 newpath = path_for_images + folder_name
 if not os.path.exists(newpath):
     os.makedirs(newpath)
@@ -70,7 +72,7 @@ count_comment = 0
 count_real = ['placeholder']
 
 # CHANGE////////
-comment_limit = 100
+comment_limit = 60
 counter = 0
 
 # iterating through the comments

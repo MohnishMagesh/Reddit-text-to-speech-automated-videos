@@ -5,7 +5,7 @@ from moviepy.editor import *
 import gc
 
 # CHANGE///////////
-newpath = "C:\\Users\\MOHNISH\\AI\\Reddit_bot\\result_video_folder\\school_game_loading_tips"
+newpath = "C:\\Users\\MOHNISH\\AI\\Reddit_bot\\result_video_folder\\fact_saving_life"
 
 # compilation_clips = []
 # for i in range(1,len(count_real)-1):
@@ -28,7 +28,7 @@ temp_path = "C:\\Users\\MOHNISH\\AI\\Reddit_bot\\result_video_folder"
 
 # for k in range(1,int((len(count_real)-1)/10)+1):
 # CHANGE///////////
-for k in range(1,int(35/10)+1):
+for k in range(1,int(37/10)+1):
     temp = k*10
     temp_video_clips_appended = []
     for i in range(temp-9,temp+1):

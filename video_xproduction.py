@@ -23,7 +23,7 @@ def make_title_clip(path):
 
 temp_path = "C:\\Users\\MOHNISH\\AI\\Reddit_bot\\result_video_folder\\temp"
 # CHANGE///////////
-newpath = "C:\\Users\\MOHNISH\\AI\\Reddit_bot\\result_video_folder\\school_game_loading_tips"
+newpath = "C:\\Users\\MOHNISH\\AI\\Reddit_bot\\result_video_folder\\fact_saving_life"
 
 # no_of_subclips = int((len(count_real)/10)-1)
 # temp_path = temp_path_folder
