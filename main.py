@@ -6,7 +6,7 @@ import video_xproduction
 import gc
 
 def main(folder_name,url,comment_limit):
-    """ --- this is the kind of format you can expect to enter
+    """ --- this is the kind of format you can expect to enter ---
     folder_name = "what_sucks_about_your_age"
     url = "https://www.reddit.com/r/AskReddit/comments/gkfaeh/what_sucks_about_being_your_age/"
     comment_limit = 50

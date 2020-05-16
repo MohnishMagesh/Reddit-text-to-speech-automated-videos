@@ -5,3 +5,6 @@ my_app_details.txt
 html_to_pdf_grabzit.py
 modules
 bad_word_rules.txt
+reddit_jinja_template.html
+__pycache__
+reddit_comment_picker.py
