@@ -22,18 +22,11 @@ template_title = jinja_env.get_template('templates/reddit_title_template.html')
 reddit = praw.Reddit(user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:75.0) Gecko/20100101 Firefox/75.0', client_id='teH3QtlEXPNiCA', client_secret="HTRTxJcFd6PWzGD_osnSv2QKGpc")
 
 # put your subreddit post url, subreddits allowed are = ['AskReddit','']
-# url = "https://www.reddit.com/r/AskReddit/comments/gcbqi7/what_is_10x_scarier_at_night_than_day/"
-# url = "https://www.reddit.com/r/AskReddit/comments/ggdivs/what_positive_effects_has_the_quarantine_had_for/"
-# url = "https://www.reddit.com/r/AskReddit/comments/ggav5m/what_is_the_most_effective_psychological_trick/"
-# url = "https://www.reddit.com/r/AskReddit/comments/ggqw9w/what_is_the_greatest_fuck_it_ill_do_it_myself_in/"
-# url = "https://www.reddit.com/r/AskReddit/comments/gfsuqt/workers_who_got_their_bosses_fired_how/"
-# url = "https://www.reddit.com/r/AskReddit/comments/gdzb3i/whats_the_stupidest_reason_you_got_in_trouble_in/"
-# url = "https://www.reddit.com/r/AskReddit/comments/gia4l8/what_are_gonna_be_the_real_consequences_of_covid/"
-# url = "https://www.reddit.com/r/AskReddit/comments/gffps6/whats_the_worst_thing_youve_ever_been_accused_of/"
-# url = "https://www.reddit.com/r/AskReddit/comments/gj3f98/if_school_was_a_game_what_would_be_some_loading/"
-# url = "https://www.reddit.com/r/AskReddit/comments/gh3xkl/men_what_unmanly_activity_do_you_proudly/"
-# url = "https://www.reddit.com/r/AskReddit/comments/gjgn93/what_is_a_fact_that_can_possibly_save_your_life/"
-url = "https://www.reddit.com/r/AskReddit/comments/gekt3w/what_industry_is_a_lot_shadier_than_it_seems/"
+# url = "https://www.reddit.com/r/AskReddit/comments/gjkcwg/what_is_the_most_useless_fact_you_know/"
+# url = "https://www.reddit.com/r/AskReddit/comments/gh1jhq/people_working_in_forensics_what_was_the_most/"
+# url = "https://www.reddit.com/r/AskReddit/comments/gk2gc0/former_antivaxxers_what_caused_you_to_change_your/"
+# url = "https://www.reddit.com/r/AskReddit/comments/gk7d5o/former_flatearthers_what_made_you_realize_the/"
+url = "https://www.reddit.com/r/AskReddit/comments/gjn5vc/whats_a_common_saying_that_annoys_you/"
 submission = reddit.submission(url=url)
 # getting subreddit name from the submission
 subreddit_name = str(submission.subreddit)
@@ -49,7 +42,7 @@ fh.write('\n')
 path_for_images = 'C:\\Users\\MOHNISH\\AI\\Reddit_bot\\result_video_folder\\'
 folder_name = title[0:18]
 # CHANGE/////
-folder_name = 'industry_shadier_than_it_seems'
+folder_name = 'common_saying_annoys'
 newpath = path_for_images + folder_name
 if not os.path.exists(newpath):
     os.makedirs(newpath)
@@ -72,7 +65,7 @@ count_comment = 0
 count_real = ['placeholder']
 
 # CHANGE////////
-comment_limit = 60
+comment_limit = 110
 counter = 0
 
 # iterating through the comments

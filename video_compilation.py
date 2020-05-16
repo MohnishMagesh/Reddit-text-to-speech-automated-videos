@@ -123,17 +123,16 @@ def process_clips(i):
                 image = image.resize(1.875)
                 final_clip = CompositeVideoClip([image],size=(1920,1080),bg_color=(26,26,27)).set_duration(image.duration)
                 comment_clips.append(final_clip)
-                print(audio_comment_clip)
-                total_comment_audio = concatenate_audioclips(audio_comment_clip)
-                comment_video_clip_for_now = concatenate_videoclips(comment_clips,method="chain")
-                comment_video_clip_for_now = comment_video_clip_for_now.set_audio(total_comment_audio)
-                # final_compiled_video.append(comment_video_clip_for_now)
-                comment_video_clip_for_now.write_videofile(f"{pid}\\comment_{i}.mp4", threads=4)
             except:
                 continue
         # concatenate videoclips for single comment clip
         # comment_video_clip = concatenate_videoclips(comment_video,method="compose")
-
+        print(audio_comment_clip)
+        total_comment_audio = concatenate_audioclips(audio_comment_clip)
+        comment_video_clip_for_now = concatenate_videoclips(comment_clips,method="chain")
+        comment_video_clip_for_now = comment_video_clip_for_now.set_audio(total_comment_audio)
+        # final_compiled_video.append(comment_video_clip_for_now)
+        comment_video_clip_for_now.write_videofile(f"{pid}\\comment_{i}.mp4", threads=4)
         # print(comment_video_clip_for_now)
         # comment_video_clip_for_now.write_videofile("C:\\Users\\MOHNISH\\AI\\Reddit_bot\\movie1.mp4")
     # else:
@@ -141,7 +140,10 @@ def process_clips(i):
 
 
 for comment_no in range(1,len(count_real)):
-    process_clips(comment_no)
+    try:
+        process_clips(comment_no)
+    except:
+        continue
     gc.collect()
 make_title_clip(path_defined_for_clips)
 
