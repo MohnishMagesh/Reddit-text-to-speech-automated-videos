@@ -1,6 +1,6 @@
 # Reads out a script using google text to speech api
 from gtts import gTTS
-from reddit_comment_picker import newpath
+# from reddit_comment_picker import newpath
 import os
 import re
 import sys
@@ -16,10 +16,11 @@ import sys
 # os.system("start output.mp3")
 
 # new list for keeping count of the number of no of sub audio files for a comment_ to later crosscheck with no of pngs
-count_audio_real = ['placeholder']
+# count_audio_real = ['placeholder']
 
-def work(path):
+def work(path,newpath):
     count_comment_mp3 = 0
+    count_audio_real = ['placeholder']
 	# with open(f"{tid}\\demo.txt", encoding='utf-8') as f:
 	# 	lines = f.read().strip().split("\n\n")
     with open(f"{path}\\demo.txt", 'r') as f:
@@ -110,10 +111,11 @@ def work(path):
             count_audio_real.append(sub_comment_count_mp3)
             # count_comment_mp3 -= 1
             continue
-    print(bad_words)
+    # print(bad_words)
+    return count_audio_real
 
     # now for the actual audio files, every punctuation_reg
 
 
 
-work('C:\\Users\\MOHNISH\\AI\\Reddit_bot')
+# work('C:\\Users\\MOHNISH\\AI\\Reddit_bot')
