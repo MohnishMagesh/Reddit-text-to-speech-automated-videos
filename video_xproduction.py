@@ -1,7 +1,5 @@
 from moviepy.editor import *
-# from video_production import , temp_path, newpath
-# from video_production import *
-# from reddit_comment_picker import count_real, temp_path_folder, newpath
+import gc
 
 def final_movie(newpath, count_real):
     def make_title_clip(path):
@@ -58,6 +56,8 @@ def final_movie(newpath, count_real):
     final_clips_combined.audio = mixed_audio
 
     final_clips_combined.write_videofile(f"{newpath}\\finally.mp4")
+    gc.collect()
+
 
 # video = VideoFileClip("myvideo.mp4")
 # audio = AudioFileClip("myaudio.mp3").loop(duration= video.duration)

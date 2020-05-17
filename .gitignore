@@ -6,5 +6,5 @@ html_to_pdf_grabzit.py
 modules
 bad_word_rules.txt
 reddit_jinja_template.html
-__pycache__
+_pycache_
 reddit_comment_picker.py

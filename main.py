@@ -25,5 +25,6 @@ if __name__ == "__main__":
             "https://www.reddit.com/r/AskReddit/comments/gktfx1/whats_something_youre_glad_your_friend_introduced/",
             "https://www.reddit.com/r/AskReddit/comments/edwa4h/what_are_some_lesserknown_secondary_uses_for_an/"]
     comment_limits = [60,50,60]
-    for i in range(0,len(urls)):
+    for i in range(1,len(urls)):
         main(folder_names[i],urls[i],comment_limits[i])
+        gc.collect()

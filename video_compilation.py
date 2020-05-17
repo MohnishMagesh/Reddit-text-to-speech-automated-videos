@@ -77,6 +77,8 @@ def make_movie(newpath, count_real, count_audio_real):
                 path_of_sub_image = f"{pid}\\sub_{j}.png"
                 try:
                     audio = AudioFileClip(path_of_sub_audio)
+                    if(j==count_real[i]):
+                        audio.duration = audio.duration - 0.10
                     audio_comment_clip.append(audio)
                     # audio = AudioFileClip(path_of_sub_audio)
                     image = ImageClip(path_of_sub_image).set_duration(audio.duration).set_fps(30).set_position((0.0,0.08),relative=True)
