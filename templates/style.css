@@ -45,15 +45,6 @@
     margin-right: 500px;
 }
 
-/* .vl {
-  border-left: 2.5px solid gray;
-  height: 500px;
-  position: absolute;
-  left: 1.8%;
-  margin-left: 0px;
-  top: 0;
-} */
-
 .post {
     display: flex;
 }

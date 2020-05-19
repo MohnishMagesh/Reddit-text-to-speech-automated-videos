@@ -18,7 +18,7 @@ def createImages(folder_name,url,comment_limit):
     template = jinja_env.get_template('templates/reddit_sample_template.html')
     template_title = jinja_env.get_template('templates/reddit_title_template.html')
 
-    reddit = praw.Reddit(user_agent=[enter your useragent], client_id=[enter your client_id], client_secret=[enter your cliend secret])
+    reddit = praw.Reddit(user_agent=[enter your useragent], client_id=[enter your client_id], client_secret=[enter your client secret])
 
     # put your subreddit post url, subreddits allowed are = ['AskReddit','']
     submission = reddit.submission(url=url)
