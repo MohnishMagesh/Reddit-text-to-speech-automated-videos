@@ -23,6 +23,7 @@ def make_subclips(newpath, count_real):
                 path_for_clip = f"{newpath}\\comment_{i}\\comment_{i}.mp4"
                 # with VideoFileClip(path_for_clip) as video_comment:
                 video_comment = VideoFileClip(path_for_clip)
+                video_comment.duration = video_comment.duration - 0.25
                 # temp_video_clips_appended.append(video_comment)
                 # add transition clip here
                 path_for_transition = f"C:\\Users\\MOHNISH\\AI\\Reddit_bot\\effects\\VHS_effect_cartoonish.mp4"
